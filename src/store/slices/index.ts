@@ -1,1 +1,2 @@
-export * from './weather-service.slice';
+export * from './image-service.slice';
+export * from './common.slice';

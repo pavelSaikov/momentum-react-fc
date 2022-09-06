@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { weatherServiceSlice } from './slices';
+import { commonSlice, imageServiceSlice } from './slices';
 
 export default configureStore({
   reducer: {
-    weatherService: weatherServiceSlice.reducer,
+    common: commonSlice.reducer,
+    weatherService: imageServiceSlice.reducer,
   },
 });
