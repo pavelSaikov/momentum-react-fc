@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { DAY_PART, Language } from '../../../constants';
+import { DAY_PART, LANGUAGE } from '../../../constants';
+import { calculateDayPart } from './helpers';
 import { CommonSlice } from './models';
 
 const INITIAL_STATE: CommonSlice = {
-  dayPart: DAY_PART.Morning,
+  dayPart: calculateDayPart(),
   city: '',
-  language: Language.Ru,
+  language: LANGUAGE.Ru,
+  username: '',
 };
 
 export const commonSlice = createSlice({
@@ -21,10 +23,14 @@ export const commonSlice = createSlice({
       state.city = action.payload;
     },
 
-    changeLanguage: (state, action: { payload: Language }) => {
+    changeLanguage: (state, action: { payload: LANGUAGE }) => {
       state.language = action.payload;
+    },
+
+    changeUserName: (state, action: { payload: string }) => {
+      state.username = action.payload;
     },
   },
 });
 
-export const { changeDayPart, changeCity, changeLanguage } = commonSlice.actions;
+export const { changeDayPart, changeCity, changeLanguage, changeUserName } = commonSlice.actions;

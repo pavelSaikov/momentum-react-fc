@@ -11,7 +11,7 @@ export enum DAY_PART {
   Night = 'Night',
 }
 
-export enum Language {
+export enum LANGUAGE {
   Ru = 'Ru',
   En = 'En',
 }

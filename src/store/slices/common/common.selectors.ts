@@ -16,3 +16,8 @@ export const languageSelector = createSelector(
   (store: StoreModel) => store.common.language,
   (language) => language,
 );
+
+export const usernameSelector = createSelector(
+  (store: StoreModel) => store.common.username,
+  (username) => username,
+);

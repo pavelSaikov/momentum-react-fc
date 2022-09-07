@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.time-and-greeting-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}

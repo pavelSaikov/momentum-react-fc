@@ -1,0 +1,23 @@
+.greeting {
+  display: flex;
+  justify-content: center;
+
+  & p {
+    color: white;
+    font-size: 40px;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-align: right;
+    width: 50%;
+  }
+}
+
+.name-input {
+  flex-grow: 1;
+  width: 50%;
+  outline: none;
+  background-color: transparent;
+  border: 0;
+  font-size: 40px;
+  color: #fff;
+}

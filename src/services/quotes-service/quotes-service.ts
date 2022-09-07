@@ -1,10 +1,10 @@
-import { Language } from '../../constants';
+import { LANGUAGE } from '../../constants';
 
 class QuotesService {
   getQuote(language: string) {
     const url =
       'https://raw.githubusercontent.com/pavelSaikov/assets/main/' +
-      (language === Language.En ? 'quotes_en.json' : 'quotes_ru.json');
+      (language === LANGUAGE.En ? 'quotes_en.json' : 'quotes_ru.json');
 
     return fetch(url)
       .then((res) => res.json())

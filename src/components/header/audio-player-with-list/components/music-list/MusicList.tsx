@@ -10,7 +10,7 @@ export const MusicList = () => {
 
   return (
     <div className="music-list">
-      {Array.from(trackIndexNameMap).map(([index, name]) => {
+      {trackIndexNameMap.map(([index, name]) => {
         const className = 'icon-checkmark music-list-item' + (trackIndex === index ? ' selected' : '');
         return (
           <ul className={className} key={index + className}>

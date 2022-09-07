@@ -5,12 +5,12 @@ import { MusicSlice } from './models';
 
 const INITIAL_STATE: MusicSlice = {
   index: 0,
-  trackListNameMap: new Map([
+  trackListNameMap: [
     [0, 'Epic Hollywood Trailer'],
     [1, 'Battle Of The Dragons'],
     [2, 'Cinematic Chillhop Main'],
     [3, 'The Way Home'],
-  ]),
+  ],
 };
 
 export const musicSlice = createSlice({

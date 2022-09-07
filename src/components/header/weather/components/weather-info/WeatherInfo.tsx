@@ -3,7 +3,7 @@ import './weather-info.scss';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { Language } from '../../../../../constants';
+import { LANGUAGE } from '../../../../../constants';
 import { DayForecast, weatherService } from '../../../../../services';
 import { citySelector, languageSelector } from '../../../../../store';
 
@@ -14,6 +14,10 @@ export const WeatherInfo = () => {
   const [weather, setWeather] = useState<DayForecast | undefined>();
 
   useEffect(() => {
+    if (!city) {
+      return;
+    }
+
     const abortController = new AbortController();
     weatherService
       .getWeather({ place: city, forecastLength: 1, abortController, lang: language })
@@ -39,12 +43,12 @@ export const WeatherInfo = () => {
         </div>
         <div className="wind-speed">
           <p>
-            {language === Language.Ru ? 'Скорость ветра:' : 'Wind speed:'} {weather.wind}
+            {language === LANGUAGE.Ru ? 'Скорость ветра:' : 'Wind speed:'} {weather.wind}
           </p>
         </div>
         <div className="humidity">
           <p>
-            {language === Language.Ru ? 'Влажность' : 'Humidity'}: {`${weather.humidity}%`}
+            {language === LANGUAGE.Ru ? 'Влажность' : 'Humidity'}: {`${weather.humidity}%`}
           </p>
         </div>
       </div>

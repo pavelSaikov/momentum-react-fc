@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
-import { BackgroundImage, Header } from './components';
+import { BackgroundImage, Header, Main } from './components';
 
 function App() {
   return (
     <Fragment>
       <BackgroundImage />
       <Header />
+      <Main />
     </Fragment>
   );
 }
