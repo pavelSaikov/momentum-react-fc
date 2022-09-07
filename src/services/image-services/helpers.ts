@@ -1,35 +1,25 @@
-import { IMAGE_SOURCE } from '../../constants';
-import store from '../../store';
+import { DAY_PART, IMAGE_SOURCE } from '../../constants';
 
-export const IMAGE_SERVICE_ID_PARAMS_FACTORY_MAP = new Map<IMAGE_SOURCE, () => [string | string[], number]>([
+export const IMAGE_SERVICE_ID_PARAMS_FACTORY_MAP = new Map<
+  IMAGE_SOURCE,
+  (tag: string, dayPart: DAY_PART, imageNumber: number) => [string | string[], number]
+>([
   [
     IMAGE_SOURCE.Github,
-    (): [string, number] => {
-      const state = store.getState();
-      const imageNumber = state.weatherService.imageIndex;
-      const dayPart = state.common.dayPart;
-
-      return [dayPart, imageNumber + 1];
-    },
+    (_tag: string, dayPart: DAY_PART, imageNumber: number): [string, number] => [dayPart, imageNumber + 1],
   ],
   [
     IMAGE_SOURCE.Flickr,
-    (): [string[], number] => {
-      const state = store.getState();
-      const imageNumber = state.weatherService.imageIndex;
-      const dayPart = state.common.dayPart;
-      const tags = [dayPart, state.weatherService.imageTag];
+    (tag: string, dayPart: DAY_PART, imageNumber: number): [string[], number] => {
+      const tags = [dayPart, tag];
 
       return [tags, imageNumber];
     },
   ],
   [
     IMAGE_SOURCE.Unsplash,
-    (): [string[], number] => {
-      const state = store.getState();
-      const imageNumber = state.weatherService.imageIndex;
-      const dayPart = state.common.dayPart;
-      const tags = [dayPart, state.weatherService.imageTag];
+    (tag: string, dayPart: DAY_PART, imageNumber: number): [string[], number] => {
+      const tags = [dayPart, tag];
 
       return [tags, imageNumber];
     },

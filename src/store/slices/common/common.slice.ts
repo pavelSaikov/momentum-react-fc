@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { DAY_PART } from '../../constants';
+import { DAY_PART } from '../../../constants';
+import { CommonSlice } from './models';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: CommonSlice = {
   dayPart: DAY_PART.Morning,
 };
 

@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { IMAGE_SOURCE } from '../../constants';
+import { IMAGE_SOURCE } from '../../../constants';
+import { ImageServiceSlice } from './models';
 
-const INITIAL_STATE = {
-  imageService: IMAGE_SOURCE.Github,
+const INITIAL_STATE: ImageServiceSlice = {
+  imageSource: IMAGE_SOURCE.Github,
   imageTag: '',
   imageIndex: 0,
 };
@@ -12,8 +13,8 @@ export const imageServiceSlice = createSlice({
   name: 'imageService',
   initialState: INITIAL_STATE,
   reducers: {
-    changeService: (state, action: { payload: IMAGE_SOURCE }) => {
-      state.imageService = action.payload;
+    changeImageSource: (state, action: { payload: IMAGE_SOURCE }) => {
+      state.imageSource = action.payload;
     },
 
     changeTag: (state, action: { payload: string }) => {
@@ -26,4 +27,4 @@ export const imageServiceSlice = createSlice({
   },
 });
 
-export const { changeService, changeTag, changeImageIndex } = imageServiceSlice.actions;
+export const { changeImageSource: changeService, changeTag, changeImageIndex } = imageServiceSlice.actions;

@@ -1,2 +1,2 @@
-export * from './image-service.slice';
-export * from './common.slice';
+export * from './image-service';
+export * from './common';
