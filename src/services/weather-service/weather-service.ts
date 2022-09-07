@@ -18,7 +18,7 @@ class WeatherService {
     forecastLength: number;
     abortController: AbortController;
     lang: string;
-  }) {
+  }): Promise<{ forecast: DayForecast[] }> {
     const searchParams = new URLSearchParams([
       ['q', place],
       ['lang', lang],
@@ -36,7 +36,7 @@ class WeatherService {
       });
   }
 
-  _adaptForecast(list: Weather[], forecastLength: number) {
+  _adaptForecast(list: Weather[], forecastLength: number): DayForecast[] {
     const currentWeatherForecast = {
       temp: Math.round(list[0].main.temp) || 0,
       feelsLike: Math.round(list[0].main.feels_like) || 0,
@@ -88,7 +88,11 @@ class WeatherService {
           temp: averageTemperaturePerDay,
           feelsLike: averageTemperaturePerDay,
           humidity: record.main.humidity,
-          description: { id: `${record.weather[0].id}`, name: record.weather[0].description },
+          description: {
+            id: `${record.weather[0].id}`,
+            name: record.weather[0].description,
+            icon: record.weather[0].icon,
+          },
           wind: Math.round(record.wind.speed),
           date: record.dt_txt,
         });

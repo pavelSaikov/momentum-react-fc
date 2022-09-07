@@ -1,0 +1,20 @@
+.weather-info {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 16px;
+  font-family: Arial;
+  color: #fff;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+.text-info div p {
+  margin: 10px 0;
+}

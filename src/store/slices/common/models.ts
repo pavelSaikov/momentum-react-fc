@@ -1,5 +1,7 @@
-import { DAY_PART } from '../../../constants';
+import { DAY_PART, Language } from '../../../constants';
 
 export interface CommonSlice {
   dayPart: DAY_PART;
+  city: string;
+  language: Language;
 }

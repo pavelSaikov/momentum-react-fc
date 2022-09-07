@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import { BackgroundImage } from './components';
+import { BackgroundImage, Header } from './components';
 
 function App() {
-  return <BackgroundImage />;
+  return (
+    <Fragment>
+      <BackgroundImage />
+      <Header />
+    </Fragment>
+  );
 }
 
 export default App;

@@ -22,7 +22,7 @@ export interface DayForecast {
   temp: number;
   feelsLike: number;
   humidity: number;
-  description: { id: string; name: string };
+  description: { id: string; name: string; icon: string };
   wind: number;
   date: string;
 }
