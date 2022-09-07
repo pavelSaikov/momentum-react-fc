@@ -1,0 +1,26 @@
+.icon-checkmark::before {
+  margin-right: 5px;
+}
+
+.selected::before {
+  color: #c5b358;
+}
+
+.music-list-item {
+  color: #fff;
+  position: relative;
+  padding: 0;
+  list-style: none;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  & span {
+    font-family: Arial;
+    font-size: 16px;
+  }
+}
