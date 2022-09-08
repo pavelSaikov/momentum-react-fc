@@ -5,4 +5,5 @@ export interface CommonSlice {
   city: string;
   language: LANGUAGE;
   username: string;
+  isSettingsModalOpen: boolean;
 }

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { DAY_PART, LANGUAGE } from '../../../constants';
+import { getCommonStateFromLocalStorage } from '../../middlewares/local-storage/extractors';
 import { calculateDayPart } from './helpers';
 import { CommonSlice } from './models';
 
@@ -9,6 +10,8 @@ const INITIAL_STATE: CommonSlice = {
   city: '',
   language: LANGUAGE.Ru,
   username: '',
+  isSettingsModalOpen: false,
+  ...getCommonStateFromLocalStorage(),
 };
 
 export const commonSlice = createSlice({
@@ -30,7 +33,11 @@ export const commonSlice = createSlice({
     changeUserName: (state, action: { payload: string }) => {
       state.username = action.payload;
     },
+
+    toggleSettingsModal: (state) => {
+      state.isSettingsModalOpen = !state.isSettingsModalOpen;
+    },
   },
 });
 
-export const { changeDayPart, changeCity, changeLanguage, changeUserName } = commonSlice.actions;
+export const { changeDayPart, changeCity, changeLanguage, changeUserName, toggleSettingsModal } = commonSlice.actions;

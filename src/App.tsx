@@ -1,6 +1,8 @@
+import './app.scss';
+
 import { Fragment } from 'react';
 
-import { BackgroundImage, Header, Main } from './components';
+import { BackgroundImage, Footer, Header, Main, SettingsModal } from './components';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <BackgroundImage />
       <Header />
       <Main />
+      <Footer />
+      <SettingsModal />
     </Fragment>
   );
 }

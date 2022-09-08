@@ -1,13 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { IMAGE_SOURCE } from '../../../constants';
-import { MAX_IMAGE_INDEX } from '../../../services';
+import { getImageServiceStateFromLocalStorage } from '../../middlewares/local-storage/extractors';
+import { calculateNextImageIndex, calculatePrevImageIndex } from './helpers';
 import { ImageServiceSlice } from './models';
+
+const a = getImageServiceStateFromLocalStorage();
 
 const INITIAL_STATE: ImageServiceSlice = {
   imageSource: IMAGE_SOURCE.Github,
   imageTag: '',
   imageIndex: 0,
+  ...a,
 };
 
 export const imageServiceSlice = createSlice({
@@ -25,14 +29,14 @@ export const imageServiceSlice = createSlice({
     nextImageIndex: (state) => {
       const currentImageIndex = state.imageIndex;
 
-      const newImageIndex = currentImageIndex === MAX_IMAGE_INDEX ? 0 : currentImageIndex + 1;
+      const newImageIndex = calculateNextImageIndex(currentImageIndex);
       state.imageIndex = newImageIndex;
     },
 
     prevImageIndex: (state) => {
       const currentTrackNumber = state.imageIndex;
 
-      const newTrackNumber = currentTrackNumber === 0 ? MAX_IMAGE_INDEX : currentTrackNumber - 1;
+      const newTrackNumber = calculatePrevImageIndex(currentTrackNumber);
       state.imageIndex = newTrackNumber;
     },
 
@@ -42,10 +46,4 @@ export const imageServiceSlice = createSlice({
   },
 });
 
-export const {
-  changeImageSource: changeService,
-  changeTag,
-  changeImageIndex,
-  nextImageIndex,
-  prevImageIndex,
-} = imageServiceSlice.actions;
+export const { changeImageSource, changeTag, nextImageIndex, prevImageIndex } = imageServiceSlice.actions;

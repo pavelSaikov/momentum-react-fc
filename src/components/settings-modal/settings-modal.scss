@@ -1,0 +1,44 @@
+.settings-modal {
+  position: absolute;
+  width: 410px;
+  left: calc((100% - 410px) / 2);
+  background-color: black;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: Arial;
+}
+
+.settings-modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  cursor: pointer;
+}
+
+.language-toggle,
+.image-service-toggle {
+  padding: 5px 0;
+  display: flex;
+
+  & p {
+    margin: 0;
+  }
+}
+
+.image-tag-input-container {
+  padding: 5px 0;
+  display: flex;
+
+  & p {
+    margin: 0;
+    margin-right: 5px;
+  }
+
+  & input {
+    border: none;
+    border-radius: 2px;
+  }
+}

@@ -21,3 +21,8 @@ export const usernameSelector = createSelector(
   (store: StoreModel) => store.common.username,
   (username) => username,
 );
+
+export const isSettingModalOpenSelector = createSelector(
+  (store: StoreModel) => store.common.isSettingsModalOpen,
+  (isOpen) => isOpen,
+);
